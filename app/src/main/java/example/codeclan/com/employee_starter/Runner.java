@@ -12,11 +12,12 @@ public class Runner {
         department1.save();
         department2.save();
 
-        Employee employee1 = new Employee("Suzie Smith", department1, 45000);
-        Employee employee2 = new Employee("Jamie Jones", department2, 25000);
+        Employee employee1 = new Employee("Suzie Smith", 45000, department1);
+        Employee employee2 = new Employee("Jamie Jones", 25000, department2);
 
         employee1.save();
         employee2.save();
+
 
     }
 }

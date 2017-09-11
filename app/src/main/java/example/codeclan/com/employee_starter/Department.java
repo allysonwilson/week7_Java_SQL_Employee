@@ -25,7 +25,7 @@ public class Department {
     }
 
     public void save() {
-        String sql = String.format("INSERT INTO artists (name) VALUES ('%s); ", title);
+        String sql = String.format("INSERT INTO departments (title) VALUES ('%s'); ", title);
         this.id = SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }
@@ -35,18 +35,18 @@ public class Department {
         ResultSet rs = SqlRunner.executeQuery(sql);
         try{
             while( rs.next() ){
-                String title = rs.getTitle("title");
+                String title = rs.getString("title");
                 System.out.println(title);
             }
         } catch (Exception e){
-            system.err.println(e.getClass().getTitle() + " : " + e.getMessage() );
+            System.err.println(e.getClass().getName() + " : " + e.getMessage() );
             System.exit(0);
         }finally{
             SqlRunner.closeConnection();
         }
     }
-
-    public static void
+//
+//    public static void
 }
 
 
