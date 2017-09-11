@@ -56,7 +56,6 @@ public class Employee {
                 System.out.println(salary);
                 System.out.println(departmentId);
             }
-
         }catch( Exception e) {
             System.err.println( e.getClass().getName() + " : " + e.getMessage() );
             System.exit(0);
@@ -65,5 +64,21 @@ public class Employee {
         }
     }
 
+    public static void deleteAll() {
+        String sql = "DELETE FROM departments";
+        SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
+    }
 
+    public void delete() {
+        String sql = String.format("Delete FROM departments WHERE id = %d", this.id);
+        SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
+    }
+
+    public void update(){
+        int departmentId = getDepartment().getId();
+        String sql = String.format("UPDATE departments SET name = '%s', SET salary = %7.2f, SET department_id = %d " +
+        "WHERE id = %d;", this.name, this.salary, departmentId, this.id);
+    }
 }
