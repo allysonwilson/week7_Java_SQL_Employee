@@ -36,6 +36,18 @@ public class Employee {
         return department;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     public void save() {
         int departmentId = getDepartment().getId();
         String sql = String.format("INSERT INTO employees (name , salary, department_id ) VALUES " +

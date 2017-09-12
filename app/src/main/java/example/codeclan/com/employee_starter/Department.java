@@ -16,12 +16,17 @@ public class Department {
         this.title = title;
     }
 
+
     public int getId() {
         return id;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void save() {
@@ -47,20 +52,19 @@ public class Department {
     }
 
     public static void deleteAll() {
-        String sql = String.format("Delete FROM departments WHERE id = %d", this.id);
+        String sql = String.format("Delete FROM departments");
         SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }
 
     public void delete() {
-        String sql = String.foramt("Delete FROM albums WHERE id = %d", this.id);
+        String sql = String.format("DELETE FROM albums WHERE id = %d", this.id);
         SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }
 
     public void update() {
-        int artistId = getArtist().getId();
-        String sql = String.format("UPDATE departments SET title = '%s' WHERE id = %d;", this.title );
+        String sql = String.format("UPDATE departments SET title = '%s' WHERE id = %d;", this.title, this.id);
         SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }
