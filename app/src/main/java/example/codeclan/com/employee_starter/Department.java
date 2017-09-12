@@ -45,8 +45,26 @@ public class Department {
             SqlRunner.closeConnection();
         }
     }
-//
-//    public static void
+
+    public static void deleteAll() {
+        String sql = String.format("Delete FROM departments WHERE id = %d", this.id);
+        SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
+    }
+
+    public void delete() {
+        String sql = String.foramt("Delete FROM albums WHERE id = %d", this.id);
+        SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
+    }
+
+    public void update() {
+        int artistId = getArtist().getId();
+        String sql = String.format("UPDATE departments SET title = '%s' WHERE id = %d;", this.title );
+        SqlRunner.executeUpdate(sql);
+        SqlRunner.closeConnection();
+    }
+    
 }
 
 
