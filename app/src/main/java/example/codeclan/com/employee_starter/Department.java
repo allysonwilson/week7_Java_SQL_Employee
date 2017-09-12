@@ -64,7 +64,7 @@ public class Department {
         SqlRunner.executeUpdate(sql);
         SqlRunner.closeConnection();
     }
-    
+
 }
 
 
